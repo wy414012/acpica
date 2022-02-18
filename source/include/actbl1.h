@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2021, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2022, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -577,19 +577,20 @@ typedef struct acpi_cedt_cfmws
 typedef struct acpi_cedt_cfmws_target_element
 {
     UINT32                  InterleaveTarget;
+
 } ACPI_CEDT_CFMWS_TARGET_ELEMENT;
 
 /* Values for Interleave Arithmetic field above */
 
-#define ACPI_CEDT_CFMWS_ARITHMETIC_MODULO	(0)
+#define ACPI_CEDT_CFMWS_ARITHMETIC_MODULO   (0)
 
 /* Values for Restrictions field above */
 
-#define ACPI_CEDT_CFMWS_RESTRICT_TYPE2		(1)
-#define ACPI_CEDT_CFMWS_RESTRICT_TYPE3		(1<<1)
-#define ACPI_CEDT_CFMWS_RESTRICT_VOLATILE	(1<<2)
-#define ACPI_CEDT_CFMWS_RESTRICT_PMEM		(1<<3)
-#define ACPI_CEDT_CFMWS_RESTRICT_FIXED		(1<<4)
+#define ACPI_CEDT_CFMWS_RESTRICT_TYPE2      (1)
+#define ACPI_CEDT_CFMWS_RESTRICT_TYPE3      (1<<1)
+#define ACPI_CEDT_CFMWS_RESTRICT_VOLATILE   (1<<2)
+#define ACPI_CEDT_CFMWS_RESTRICT_PMEM       (1<<3)
+#define ACPI_CEDT_CFMWS_RESTRICT_FIXED      (1<<4)
 
 
 /*******************************************************************************
