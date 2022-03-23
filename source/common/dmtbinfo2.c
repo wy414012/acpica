@@ -887,6 +887,13 @@ ACPI_DMTABLE_INFO           AcpiDmTableInfoMadt16[] =
    ACPI_DMT_TERMINATOR
 };
 
+/* 17: OEM data structure */
+
+ACPI_DMTABLE_INFO           AcpiDmTableInfoMadt17[] =
+{
+    {ACPI_DMT_RAW_BUFFER, 0,                                        "OEM Data", 0},
+    ACPI_DMT_TERMINATOR
+};
 
 /*******************************************************************************
  *
@@ -1986,7 +1993,7 @@ ACPI_DMTABLE_INFO           AcpiDmTableInfoSdevHdr[] =
     {ACPI_DMT_UINT8,    ACPI_SDEVH_OFFSET (Flags),                  "Flags (decoded below)", 0},
     {ACPI_DMT_FLAG0,    ACPI_SDEVH_FLAG_OFFSET (Flags,0),           "Allow handoff to unsecure OS", 0},
     {ACPI_DMT_FLAG1,    ACPI_SDEVH_FLAG_OFFSET (Flags,0),           "Secure access components present", 0},
-    {ACPI_DMT_UINT16,   ACPI_SDEVH_OFFSET (Length),                 "Length", 0},
+    {ACPI_DMT_UINT16,   ACPI_SDEVH_OFFSET (Length),                 "Length",  DT_LENGTH},
     ACPI_DMT_TERMINATOR
 };
 
