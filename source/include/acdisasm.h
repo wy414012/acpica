@@ -206,6 +206,7 @@ typedef enum
     ACPI_DMT_FLAGS0,
     ACPI_DMT_FLAGS1,
     ACPI_DMT_FLAGS2,
+    ACPI_DMT_FLAGS8_2,
     ACPI_DMT_FLAGS4,
     ACPI_DMT_FLAGS4_0,
     ACPI_DMT_FLAGS4_4,
@@ -426,6 +427,7 @@ extern ACPI_DMTABLE_INFO        AcpiDmTableInfoDmar1[];
 extern ACPI_DMTABLE_INFO        AcpiDmTableInfoDmar2[];
 extern ACPI_DMTABLE_INFO        AcpiDmTableInfoDmar3[];
 extern ACPI_DMTABLE_INFO        AcpiDmTableInfoDmar4[];
+extern ACPI_DMTABLE_INFO        AcpiDmTableInfoDmar5[];
 extern ACPI_DMTABLE_INFO        AcpiDmTableInfoDrtm[];
 extern ACPI_DMTABLE_INFO        AcpiDmTableInfoDrtm0[];
 extern ACPI_DMTABLE_INFO        AcpiDmTableInfoDrtm0a[];
