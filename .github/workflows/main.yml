@@ -13,7 +13,7 @@ jobs:
   
   build-macos:
     name: 使用macOS构建
-    runs-on: macos-11
+    runs-on: macos-latest
     env:
         JOB_TYPE: BUILD
 
