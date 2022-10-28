@@ -172,6 +172,7 @@
 #define ACPI_SIG_APMT           "APMT"      /* Arm Performance Monitoring Unit table */
 #define ACPI_SIG_BDAT           "BDAT"      /* BIOS Data ACPI Table */
 #define ACPI_SIG_CCEL           "CCEL"      /* CC Event Log Table */
+#define ACPI_SIG_CDAT           "CDAT"      /* Coherent Device Attribute Table */
 #define ACPI_SIG_IORT           "IORT"      /* IO Remapping Table */
 #define ACPI_SIG_IVRS           "IVRS"      /* I/O Virtualization Reporting Structure */
 #define ACPI_SIG_LPIT           "LPIT"      /* Low Power Idle Table */
@@ -179,7 +180,6 @@
 #define ACPI_SIG_MCFG           "MCFG"      /* PCI Memory Mapped Configuration table */
 #define ACPI_SIG_MCHI           "MCHI"      /* Management Controller Host Interface table */
 #define ACPI_SIG_MPST           "MPST"      /* Memory Power State Table */
-#define ACPI_SIG_MSCT           "MSCT"      /* Maximum System Characteristics Table */
 #define ACPI_SIG_MSDM           "MSDM"      /* Microsoft Data Management Table */
 #define ACPI_SIG_NFIT           "NFIT"      /* NVDIMM Firmware Interface Table */
 #define ACPI_SIG_NHLT           "NHLT"      /* Non HD Audio Link Table */
@@ -546,7 +546,7 @@ typedef struct acpi_table_ccel
  * IORT - IO Remapping Table
  *
  * Conforms to "IO Remapping Table System Software on ARM Platforms",
- * Document number: ARM DEN 0049E.d, Feb 2022
+ * Document number: ARM DEN 0049E.e, Sep 2022
  *
  ******************************************************************************/
 
@@ -744,6 +744,7 @@ typedef struct acpi_iort_smmu_v3
 #define ACPI_IORT_SMMU_V3_COHACC_OVERRIDE   (1)
 #define ACPI_IORT_SMMU_V3_HTTU_OVERRIDE     (3<<1)
 #define ACPI_IORT_SMMU_V3_PXM_VALID         (1<<3)
+#define ACPI_IORT_SMMU_V3_DEVICEID_VALID    (1<<4)
 
 typedef struct acpi_iort_pmcg
 {
@@ -1549,7 +1550,7 @@ enum AcpiMadtLpcPicVersion {
 
 typedef struct acpi_madt_oem_data
 {
-    UINT8                   OemData[0];
+    UINT8                   OemData[];
 } ACPI_MADT_OEM_DATA;
 
 
