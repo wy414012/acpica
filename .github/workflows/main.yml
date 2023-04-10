@@ -90,7 +90,7 @@ jobs:
       
     - name: Build ACPICA
       run: |
-        cd acpica
+        ls
         nmake
 
     - name: Upload Artifacts
