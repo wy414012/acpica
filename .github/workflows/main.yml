@@ -85,5 +85,5 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
     - name: Build ACPICA
       run: |
-        cd ${{ github.workspace }}/source/tools/acpica
+        cd ./source/tools/acpica
         msbuild /m /t:rebuild /p:Configuration=Release /p:Platform="x64"
