@@ -74,16 +74,27 @@ jobs:
           tag: ${{ github.ref }}
           file_glob: true
           
-  build:
+  winwods-build:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: "master"
-    - name: Setup Visual Studio
-      uses: microsoft/setup-msbuild@v1.0.2
+    - name: Checkout
+      uses: actions/checkout@v2
+      
+    - name: Set up Visual Studio
+      uses: microsoft/setup-msbuild@v1.0.3
+      
+    - name: Install Windows SDK
+      run: |
+        choco install --yes windows-sdk-10.0
+      
     - name: Build ACPICA
       run: |
-        cd ./source/tools/acpica
-        msbuild /m /t:rebuild /p:Configuration=Release /p:Platform="x64"
+        cd acpica
+        nmake
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: acpica
+        path: acpica/
