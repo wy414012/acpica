@@ -73,3 +73,17 @@ jobs:
           file: Linux/*.zip
           tag: ${{ github.ref }}
           file_glob: true
+          
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: "master"
+    - name: Setup Visual Studio
+      uses: microsoft/setup-msbuild@v1.0.2
+    - name: Build ACPICA
+      run: |
+        cd ${{ github.workspace }}/source/tools/acpica
+        msbuild /m /t:rebuild /p:Configuration=Release /p:Platform="x64"
