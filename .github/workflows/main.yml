@@ -19,7 +19,7 @@ jobs:
 
     steps:
       
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: 安装依赖环境
         run: brew install flex bison
@@ -29,7 +29,7 @@ jobs:
           make clean
           ./unixbuild.sh
       - name: 打包上传工作件
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: acpica_macOS_build
           path: Darwin/*.zip
@@ -47,7 +47,7 @@ jobs:
     name: linux-gcc构建
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: 安装依赖环境
         run: |
@@ -60,7 +60,7 @@ jobs:
           ./unixbuild.sh
 
       - name: 打包上传构建工件
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: acpica_Linux_build
           path: Linux/*.zip
