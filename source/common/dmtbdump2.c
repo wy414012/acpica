@@ -2025,10 +2025,6 @@ AcpiDmDumpPhat (
                 Offset += VendorLength;
             }
 
-            if (ACPI_FAILURE (Status))
-            {
-                return;
-            }
             break;
 
         default:
@@ -2352,6 +2348,60 @@ AcpiDmDumpPrmt (
 
             CurrentOffset += sizeof (ACPI_PRMT_HANDLER_INFO);
         }
+    }
+}
+
+
+/*******************************************************************************
+ *
+ * FUNCTION:    AcpiDmDumpRas2
+ *
+ * PARAMETERS:  Table               - A RAS2 table
+ *
+ * RETURN:      None
+ *
+ * DESCRIPTION: Format the contents of a Ras2. This is a variable-length
+ *              table that contains an open-ended number of the RAS2 PCC
+ *              descriptors at the end of the table.
+ *
+ ******************************************************************************/
+
+void
+AcpiDmDumpRas2 (
+    ACPI_TABLE_HEADER       *Table)
+{
+    ACPI_STATUS             Status;
+    ACPI_RAS2_PCC_DESC      *Subtable;
+    UINT32                  Length = Table->Length;
+    UINT32                  Offset = sizeof (ACPI_TABLE_RAS2);
+
+
+    /* Main table */
+
+    Status = AcpiDmDumpTable (Length, 0, Table, 0, AcpiDmTableInfoRas2);
+    if (ACPI_FAILURE (Status))
+    {
+        return;
+    }
+
+    /* Subtables - RAS2 PCC descriptor list */
+
+    Subtable = ACPI_ADD_PTR (ACPI_RAS2_PCC_DESC, Table, Offset);
+    while (Offset < Table->Length)
+    {
+        AcpiOsPrintf ("\n");
+        Status = AcpiDmDumpTable (Length, Offset, Subtable,
+            sizeof (ACPI_RAS2_PCC_DESC), AcpiDmTableInfoRas2PccDesc);
+        if (ACPI_FAILURE (Status))
+        {
+            return;
+        }
+
+        /* Point to next subtable */
+
+        Offset += sizeof (ACPI_RAS2_PCC_DESC);
+        Subtable = ACPI_ADD_PTR (ACPI_RAS2_PCC_DESC, Subtable,
+            sizeof (ACPI_RAS2_PCC_DESC));
     }
 }
 
