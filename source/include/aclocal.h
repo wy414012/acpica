@@ -8,7 +8,7 @@
  *
  * 1. Copyright Notice
  *
- * Some or all of this work - Copyright (c) 1999 - 2023, Intel Corp.
+ * Some or all of this work - Copyright (c) 1999 - 2024, Intel Corp.
  * All rights reserved.
  *
  * 2. License
@@ -1411,6 +1411,8 @@ typedef struct acpi_port_info
 #define ACPI_ADDRESS_TYPE_MEMORY_RANGE          0
 #define ACPI_ADDRESS_TYPE_IO_RANGE              1
 #define ACPI_ADDRESS_TYPE_BUS_NUMBER_RANGE      2
+
+#define ACPI_ADDRESS_TYPE_PCC_NUMBER            0xA
 
 /* Resource descriptor types and masks */
 
