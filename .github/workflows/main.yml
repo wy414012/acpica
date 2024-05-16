@@ -12,8 +12,8 @@ on:
 jobs:
   
   build-macos:
-    name: 使用macOS构建
-    runs-on: self-hosted
+    name: macOS构建
+    runs-on: macos-12
     env:
         JOB_TYPE: BUILD
 
@@ -44,7 +44,7 @@ jobs:
           file_glob: true
           
   build-linux:
-    name: linux-gcc构建
+    name: gcc构建
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
