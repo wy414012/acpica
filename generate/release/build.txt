@@ -127,9 +127,9 @@ Checkin documents/changes.txt, message "Logfile: Changes for version yyyymmdd"
 Checkin the new version number, source/include/acpixf.h "Update version to yyyymmdd"
 Git push everything
 
-Tag the version file with a name of the form Rmm_dd_yy
+Tag the version file with a name of the form Ryyyy_mm_dd
     Get the commit number for the version number commit above (git log)
-    git tag -m"version yyyymmdd" Rmm_dd_yy HEAD
+    git tag -m"version yyyymmdd" Ryyyy_mm_dd HEAD
     git push --tags
 
 Build the various tar/zip release files:
@@ -138,8 +138,39 @@ Build the various tar/zip release files:
 
 
 
-Update the ACPICA website
+Update the ACPICA website for every new release
+
 -------------------------
+
+Newer Intel Developer Zone (IDZ) based Website Guidelines
+
+Intel employee maintainer:
+    Sign in as an Intel employee (using SSO) here: 
+        https://digitalrequest.intel.com/servicedesk/customer/portal/83
+
+    Open a ticket request of type "Create or Update Landing Page or Video"
+        Fill all the required information in the ticket
+
+    Edit the exact instructions which will vary for every new release in:
+        "acpica new release scope analysis.rtf" document
+
+    Upload the document as part of attachments in the ticket along with:
+        the 6 release files + release notes
+
+    Make all the necessary changes to webpages in GatherContent (GC)
+
+    The IDZ website will take about 1-2 weeks to reflect the changes
+
+    IDZ homepage (Overview page) - 
+        https://www.intel.com/content/www/us/en/developer/topic-technology/open/acpica/overview.html
+
+    GC project pages (for pre-release drafts) - 
+        https://idz.gathercontent.com/content/215567/items/5111dd3d-282d-4d57-99ab-ffb739a73548
+
+
+-------------------------
+
+Older Drupal 7 based Website Guidelines:
 
 Login to acpica.org (with update permission)
 
